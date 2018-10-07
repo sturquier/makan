@@ -1,6 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
 
+import * as routes from '../constants/routes'
+import Header from './Header/Header.component'
 import Home from './Home/Home'
 import Recipes from './Recipes/Recipes'
 import Ingredients from './Ingredients/Ingredients'
@@ -9,11 +11,14 @@ export default class AppRouting extends Component {
 	render() {
 		return (
 			<HashRouter>
-				<Switch>
-					<Route exact path="/" component={Home}/>
-					<Route exact path="/recipes" component={Recipes}/>
-					<Route exact path="/ingredients" component={Ingredients}/>
-				</Switch>
+				<Fragment>
+					<Header/>
+					<Switch>
+						<Route exact path={routes.ROOT_PAGE} component={Home}/>
+						<Route exact path={routes.SEARCH_RECIPES_BY_CATEGORIES} component={Recipes}/>
+						<Route exact path={routes.SEARCH_RECIPES_BY_INGREDIENTS} component={Ingredients}/>
+					</Switch>
+				</Fragment>
 			</HashRouter>
 		)
 	}
