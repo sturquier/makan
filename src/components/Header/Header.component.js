@@ -14,19 +14,19 @@ const Header = () => {
 	return (
 		<AppBar position='static'>
 			<Toolbar>
-				<IconButton 
-					aria-label='Home' 
-					component={Link} 
+				<IconButton
+					aria-label='Home'
+					component={Link}
 					to={routes.ROOT_PAGE}><HomeIcon/>
 				</IconButton>
-				<Typography 
-					variant='title' 
+				<Typography
+					variant='title'
 					style={styles.typo}
 					component={Link}
 					to={routes.SEARCH_RECIPES_BY_CATEGORIES}>Recipes
 				</Typography>
-				<Typography 
-					variant='title' 
+				<Typography
+					variant='title'
 					style={styles.typo}
 					component={Link}
 					to={routes.SEARCH_RECIPES_BY_INGREDIENTS}>Ingredients

@@ -3,9 +3,9 @@ import { HashRouter, Switch, Route } from 'react-router-dom'
 
 import * as routes from '../constants/routes'
 import Header from './Header/Header.component'
-import Home from './Home/Home'
-import Recipes from './Recipes/Recipes'
-import Ingredients from './Ingredients/Ingredients'
+import Home from './Home/Home.component'
+import Recipes from './Recipes/Recipes.component'
+import Ingredients from './Ingredients/Ingredients.component'
 
 export default class AppRouting extends Component {
 	render() {
