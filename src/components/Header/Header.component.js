@@ -23,13 +23,19 @@ const Header = () => {
 					variant='title'
 					style={styles.typo}
 					component={Link}
-					to={routes.SEARCH_RECIPES_BY_CATEGORIES}>Recipes
+					to={routes.SEARCH_RECIPES_BY_CATEGORIES}>Categories
 				</Typography>
 				<Typography
 					variant='title'
 					style={styles.typo}
 					component={Link}
 					to={routes.SEARCH_RECIPES_BY_INGREDIENTS}>Ingredients
+				</Typography>
+				<Typography
+					variant='title'
+					style={styles.typo}
+					component={Link}
+					to={routes.CREATE_RECIPE}>Create recipe
 				</Typography>
 			</Toolbar>
 		</AppBar>

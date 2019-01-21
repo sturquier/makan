@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-export default class Recipes extends Component {
+export default class Categories extends Component {
 	render() {
 		return (
 			<div>
