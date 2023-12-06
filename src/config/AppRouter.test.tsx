@@ -1,8 +1,8 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import App from './App';
+import AppRouter from './AppRouter';
 
 test('renders without crashing', () => {
-  const { baseElement } = render(<App />);
+  const { baseElement } = render(<AppRouter />);
   expect(baseElement).toBeDefined();
 });
