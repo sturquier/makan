@@ -1,10 +1,12 @@
 import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
-import Page from '../pages/Page';
-import Menu from '../components/Menu/Menu';
 
-const AppRouter: React.FC = () => {
+import { IPage, pages } from './config/router';
+import Page from './pages/Page';
+import Menu from './components/Menu/Menu';
+
+const App: React.FC = () => {
   return (
     <IonApp>
       <IonReactRouter>
@@ -12,11 +14,13 @@ const AppRouter: React.FC = () => {
           <Menu />
           <IonRouterOutlet id="main">
             <Route path="/" exact={true}>
-              <Redirect to="/folder/Inbox" />
+              <Redirect to="/recipes" />
             </Route>
-            <Route path="/folder/:name" exact={true}>
-              <Page />
-            </Route>
+            {pages.map((page: IPage, index: number) => (
+              <Route key={index} path={page.url} exact={true}>
+                <Page />
+              </Route>
+            ))}
           </IonRouterOutlet>
         </IonSplitPane>
       </IonReactRouter>
@@ -24,4 +28,4 @@ const AppRouter: React.FC = () => {
   );
 };
 
-export default AppRouter;
+export default App;

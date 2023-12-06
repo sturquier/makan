@@ -10,28 +10,9 @@ import {
   IonNote,
 } from '@ionic/react';
 import { useLocation } from 'react-router-dom';
-import { mailOutline, paperPlaneOutline } from 'ionicons/icons';
 
-import './Menu.css';
-
-interface AppPage {
-  title: string;
-  url: string;
-  icon: string;
-}
-
-const appPages: AppPage[] = [
-  {
-    title: 'Inbox',
-    url: '/folder/Inbox',
-    icon: mailOutline
-  },
-  {
-    title: 'Outbox',
-    url: '/folder/Outbox',
-    icon: paperPlaneOutline
-  }
-];
+import { IPage, pages } from '../../config/router';
+import './Menu.scss';
 
 const Menu: React.FC = () => {
   const location = useLocation();
@@ -39,19 +20,24 @@ const Menu: React.FC = () => {
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
-        <IonList id="inbox-list">
-          <IonListHeader>Inbox</IonListHeader>
-          <IonNote>hi@ionicframework.com</IonNote>
-          {appPages.map((appPage, index) => {
-            return (
-              <IonMenuToggle key={index} autoHide={false}>
-                <IonItem className={location.pathname === appPage.url ? 'selected' : ''} routerLink={appPage.url} routerDirection="none" lines="none" detail={false}>
-                  <IonIcon aria-hidden="true" slot="start" icon={appPage.icon} />
-                  <IonLabel>{appPage.title}</IonLabel>
-                </IonItem>
-              </IonMenuToggle>
-            );
-          })}
+        <IonList id="pages-list">
+          <IonListHeader>Makan</IonListHeader>
+          <IonNote>Makan</IonNote>
+          {pages.map((page: IPage, index: number) => (
+            <IonMenuToggle key={index} autoHide={false}>
+              <IonItem
+                className={location.pathname === page.url ? 'selected' : ''}
+                routerLink={page.url}
+                routerDirection="none"
+                lines="none"
+                detail={false}
+              >
+                <IonIcon aria-hidden="true" slot="start" icon={page.icon} />
+                <IonLabel>{page.title}</IonLabel>
+              </IonItem>
+            </IonMenuToggle>
+            )
+          )}
         </IonList>
       </IonContent>
     </IonMenu>
