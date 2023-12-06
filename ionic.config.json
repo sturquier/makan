@@ -1,0 +1,8 @@
+{
+  "name": "Makan",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "react-vite",
+  "id": "fedc1b3f"
+}
