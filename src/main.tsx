@@ -1,4 +1,4 @@
-import React from 'react';
+import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { setupIonicReact } from '@ionic/react';
 import { ApolloProvider } from '@apollo/client';
@@ -24,9 +24,9 @@ const container = document.getElementById('root');
 const root = createRoot(container!);
 
 root.render(
-  <React.StrictMode>
+  <StrictMode>
     <ApolloProvider client={GraphQLClient}>
       <App />
     </ApolloProvider>
-  </React.StrictMode>
+  </StrictMode>
 );

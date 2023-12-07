@@ -1,12 +1,14 @@
+import { FC, ReactNode } from 'react';
 import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
-import { useParams } from 'react-router';
 
 import './Page.scss';
 
-const Page: React.FC = () => {
+interface PageProps {
+  title: string;
+  children: ReactNode;
+}
 
-  const { name } = useParams<{ name: string; }>();
-
+const Page: FC<PageProps> = ({ title, children }) => {
   return (
     <IonPage>
       <IonHeader>
@@ -14,18 +16,13 @@ const Page: React.FC = () => {
           <IonButtons slot="start">
             <IonMenuButton />
           </IonButtons>
-          <IonTitle>{name}</IonTitle>
+          <IonTitle>{title}</IonTitle>
         </IonToolbar>
       </IonHeader>
 
       <IonContent fullscreen>
-        <IonHeader collapse="condense">
-          <IonToolbar>
-            <IonTitle size="large">{name}</IonTitle>
-          </IonToolbar>
-        </IonHeader>
         <div id="container">
-          <strong>{name}</strong>
+          <>{children}</>
           <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
         </div>
       </IonContent>
