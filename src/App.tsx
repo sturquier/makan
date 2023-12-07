@@ -3,9 +3,9 @@ import { IonApp, IonRouterOutlet, IonSplitPane } from '@ionic/react';
 import { IonReactRouter } from '@ionic/react-router';
 import { Redirect, Route } from 'react-router-dom';
 
-import { IPage, pages } from './config/router';
-import Menu from './components/Menu/Menu';
-import Page from './layouts/Page/Page';
+import { IPage, pages } from '@/config/router';
+import Menu from '@/components/Menu/Menu';
+import Page from '@/layouts/Page/Page';
 
 const App: FC = () => {
   return (

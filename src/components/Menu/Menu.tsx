@@ -12,7 +12,7 @@ import {
 } from '@ionic/react';
 import { useLocation } from 'react-router-dom';
 
-import { IPage, pages } from '../../config/router';
+import { IPage, pages } from '@/config/router';
 import './Menu.scss';
 
 const Menu: FC = () => {

@@ -14,8 +14,8 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
-import { GraphQLClient } from './config/apollo';
-import App from './App';
+import { GraphQLClient } from '@/config/apollo';
+import App from '@/App';
 import './theme/variables.scss';
 
 setupIonicReact();

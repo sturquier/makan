@@ -1,7 +1,7 @@
 import { ComponentType } from 'react';
 import { fishOutline, restaurantOutline } from 'ionicons/icons';
 
-import Recipes from '../pages/Recipes/Recipes';
+import Recipes from '@/pages/Recipes/Recipes';
 
 export interface IPage {
   title: string;
