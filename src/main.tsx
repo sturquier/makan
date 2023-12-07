@@ -1,6 +1,7 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { setupIonicReact } from '@ionic/react';
+import { ApolloProvider } from '@apollo/client';
 
 import '@ionic/react/css/core.css';
 import '@ionic/react/css/normalize.css';
@@ -13,6 +14,7 @@ import '@ionic/react/css/text-transformation.css';
 import '@ionic/react/css/flex-utils.css';
 import '@ionic/react/css/display.css';
 
+import { GraphQLClient } from './config/apollo';
 import App from './App';
 import './theme/variables.scss';
 
@@ -23,6 +25,8 @@ const root = createRoot(container!);
 
 root.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={GraphQLClient}>
+      <App />
+    </ApolloProvider>
   </React.StrictMode>
 );

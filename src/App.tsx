@@ -19,6 +19,11 @@ const App: React.FC = () => {
             {pages.map((page: IPage, index: number) => (
               <Route key={index} path={page.url} exact={true}>
                 <Page />
+                {page.subPages?.map((subPage: IPage, subIndex: number) => (
+                  <Route key={subIndex} path={subPage.url} exact={true}>
+                    <Page />
+                  </Route>
+                ))}
               </Route>
             ))}
           </IonRouterOutlet>
