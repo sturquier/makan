@@ -23,7 +23,7 @@ const Menu: FC = () => {
       <IonContent>
         <IonList>
           <IonListHeader>Makan</IonListHeader>
-          <IonNote>Makan</IonNote>
+          <IonNote color='medium'>Makan</IonNote>
           {pages.filter((page: IPage) => page.menuTitle && page.menuIcon).map((page: IPage, index: number) => (
             <IonMenuToggle key={index} autoHide={false}>
               <IonItem

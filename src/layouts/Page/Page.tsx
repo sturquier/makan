@@ -3,12 +3,12 @@ import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, Io
 
 import './Page.scss';
 
-interface PageProps {
+interface IPageProps {
   title: string;
   children: ReactNode;
 }
 
-const Page: FC<PageProps> = ({ title, children }) => {
+const Page: FC<IPageProps> = ({ title, children }) => {
   return (
     <IonPage>
       <IonHeader>

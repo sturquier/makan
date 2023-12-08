@@ -4,10 +4,13 @@ import { useQuery } from '@apollo/client';
 import { IonButton, IonCol, IonRow } from '@ionic/react';
 
 import { GET_RECIPES, IRecipesQuery } from '@/graphql/queries/recipes';
+import { IRecipe } from '@/models/recipes';
 import Spinner from '@/components/Spinner/Spinner';
+import Card from '@/components/Card/Card';
 
 const RecipesList: FC = () => {
   const history = useHistory();
+
   const { loading, data } = useQuery<IRecipesQuery>(GET_RECIPES);
 
   return (
@@ -24,9 +27,11 @@ const RecipesList: FC = () => {
         <Spinner />
       ) : (
         data?.recipes.length === 0 ? (
-          <p>Aucune recette à afficher</p>
+          <p>TODO : Aucune recette à afficher</p>
         ) : (
-          <p>TODO</p>
+          data?.recipes.map((recipe: IRecipe, index: number) => (
+            <Card key={index} recipe={recipe} />
+          ))
         )
       )}
     </>
