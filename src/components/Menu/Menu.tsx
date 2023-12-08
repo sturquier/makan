@@ -21,7 +21,7 @@ const Menu: FC = () => {
   return (
     <IonMenu contentId="main" type="overlay">
       <IonContent>
-        <IonList id="pages-list">
+        <IonList>
           <IonListHeader>Makan</IonListHeader>
           <IonNote>Makan</IonNote>
           {pages.filter((page: IPage) => page.menuTitle && page.menuIcon).map((page: IPage, index: number) => (

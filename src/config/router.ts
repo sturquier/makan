@@ -1,7 +1,11 @@
 import { ComponentType } from 'react';
 import { fishOutline, restaurantOutline } from 'ionicons/icons';
 
-import Recipes from '@/pages/Recipes/Recipes';
+import RecipesList from '@/pages/RecipesList/RecipesList';
+import RecipeForm from '@/pages/RecipeForm/RecipeForm';
+import RecipeDetails from '@/pages/RecipeDetails/RecipeDetails';
+import IngredientsList from '@/pages/IngredientsList/IngredientsList';
+import IngredientForm from '@/pages/IngredientForm/IngredientForm';
 
 export interface IPage {
   title: string;
@@ -15,30 +19,30 @@ export const pages: IPage[] = [
   {
     title: 'Liste des recettes',
     path: '/recipes',
-    component: Recipes,
+    component: RecipesList,
     menuTitle: 'Recettes',
     menuIcon: restaurantOutline,
   },
   {
     title: 'Ajouter une recette',
     path: '/recipes/add',
-    component: Recipes,
+    component: RecipeForm,
   },
   {
     title: 'Détails de la recette',
-    path: '/recipes/:id',
-    component: Recipes,
+    path: '/recipes/details/:id',
+    component: RecipeDetails,
   },
   {
     title: 'Liste des ingrédients',
     path: '/ingredients',
-    component: Recipes,
+    component: IngredientsList,
     menuTitle: 'Ingrédients',
     menuIcon: fishOutline,
   },
   {
     title: 'Ajouter un ingrédient',
     path: '/ingredients/add',
-    component: Recipes,
+    component: IngredientForm,
   },
 ];

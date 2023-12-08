@@ -1,4 +1,6 @@
-import { gql } from "@apollo/client";
+import { gql } from '@apollo/client';
+
+import { IRecipe } from '@/models/recipes';
 
 export const GET_RECIPES = gql`
   query GetRecipes {
@@ -7,3 +9,7 @@ export const GET_RECIPES = gql`
     }
   }
 `;
+
+export interface IRecipesQuery {
+  recipes: IRecipe[];
+};

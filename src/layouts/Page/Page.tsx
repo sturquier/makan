@@ -21,9 +21,8 @@ const Page: FC<PageProps> = ({ title, children }) => {
       </IonHeader>
 
       <IonContent fullscreen>
-        <div id="container">
+        <div className="page-content">
           <>{children}</>
-          <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
         </div>
       </IonContent>
     </IonPage>
