@@ -24,8 +24,8 @@ export const pages: IPage[] = [
     menuIcon: restaurantOutline,
   },
   {
-    title: 'Ajouter une recette',
-    path: '/recipes/add',
+    title: 'Créer une recette',
+    path: '/recipes/new',
     component: RecipeForm,
   },
   {
@@ -41,8 +41,8 @@ export const pages: IPage[] = [
     menuIcon: fishOutline,
   },
   {
-    title: 'Ajouter un ingrédient',
-    path: '/ingredients/add',
+    title: 'Créer un ingrédient',
+    path: '/ingredients/new',
     component: IngredientForm,
   },
 ];

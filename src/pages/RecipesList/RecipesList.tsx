@@ -20,7 +20,7 @@ const RecipesList: FC = () => {
           <h1>Rechercher des recettes</h1>
         </IonCol>
         <IonCol>
-          <IonButton color='tertiary' onClick={() => history.push('/recipes/add')}>Ajouter</IonButton>
+          <IonButton color='tertiary' onClick={() => history.push('/recipes/new')}>Créer</IonButton>
         </IonCol>
       </IonRow>
       {loading ? (

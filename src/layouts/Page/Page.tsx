@@ -1,6 +1,8 @@
 import { FC, ReactNode } from 'react';
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { IonBackButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/react';
+import { useLocation } from 'react-router-dom';
 
+import { IPage, pages } from '@/config/router';
 import './Page.scss';
 
 interface IPageProps {
@@ -9,12 +11,16 @@ interface IPageProps {
 }
 
 const Page: FC<IPageProps> = ({ title, children }) => {
+  const location = useLocation();
+
+  const currentPage = pages.find((page: IPage) => page.path === location.pathname);
+
   return (
     <IonPage>
       <IonHeader>
         <IonToolbar>
           <IonButtons slot="start">
-            <IonMenuButton />
+            {currentPage?.menuTitle && currentPage.menuIcon ? <IonMenuButton /> : <IonBackButton />}
           </IonButtons>
           <IonTitle>{title}</IonTitle>
         </IonToolbar>
