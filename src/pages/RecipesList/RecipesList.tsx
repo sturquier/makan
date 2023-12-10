@@ -6,7 +6,7 @@ import { IonButton, IonCol, IonRow } from '@ionic/react';
 import { GET_RECIPES, IRecipesQuery } from '@/graphql/queries/recipes';
 import { IRecipe } from '@/models/recipes';
 import Spinner from '@/components/Spinner/Spinner';
-import Card from '@/components/Card/Card';
+import RecipeCard from '@/components/Card/RecipeCard';
 
 const RecipesList: FC = () => {
   const history = useHistory();
@@ -15,12 +15,15 @@ const RecipesList: FC = () => {
 
   return (
     <>
-      <IonRow className='ion-justify-content-between'>
+      <IonRow>
         <IonCol>
-          <h1>Rechercher des recettes</h1>
-        </IonCol>
-        <IonCol>
-          <IonButton color='tertiary' onClick={() => history.push('/recipes/new')}>Créer</IonButton>
+          <IonButton
+            color='tertiary'
+            className='ion-float-right'
+            onClick={() => history.push('/recipes/new')}
+          >
+            Créer
+          </IonButton>
         </IonCol>
       </IonRow>
       {loading ? (
@@ -30,7 +33,7 @@ const RecipesList: FC = () => {
           <p>TODO : Aucune recette à afficher</p>
         ) : (
           data?.recipes.map((recipe: IRecipe, index: number) => (
-            <Card key={index} recipe={recipe} />
+            <RecipeCard key={index} recipe={recipe} />
           ))
         )
       )}

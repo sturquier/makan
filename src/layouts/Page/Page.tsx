@@ -3,7 +3,6 @@ import { IonBackButton, IonButtons, IonContent, IonHeader, IonMenuButton, IonPag
 import { useLocation } from 'react-router-dom';
 
 import { IPage, pages } from '@/config/router';
-import './Page.scss';
 
 interface IPageProps {
   title: string;
@@ -25,11 +24,8 @@ const Page: FC<IPageProps> = ({ title, children }) => {
           <IonTitle>{title}</IonTitle>
         </IonToolbar>
       </IonHeader>
-
-      <IonContent fullscreen>
-        <div className="page-content">
-          <>{children}</>
-        </div>
+      <IonContent fullscreen className='ion-padding'>
+        {children}
       </IonContent>
     </IonPage>
   );

@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useHistory } from 'react-router';
 
 import { useToast } from '@/utils/toasts';
+import { GET_INGREDIENTS } from '@/graphql/queries/ingredients';
 import { CREATE_INGREDIENT, ICreateIngredientMutation, ICreateIngredientPayload } from '@/graphql/mutations/ingredients';
 import Spinner from '@/components/Spinner/Spinner';
 
@@ -18,7 +19,9 @@ const IngredientForm: FC = () => {
     formState: { isValid },
   } = useForm<ICreateIngredientPayload>();
 
-  const [createIngredient, { loading }] = useMutation<ICreateIngredientMutation>(CREATE_INGREDIENT);
+  const [createIngredient, { loading }] = useMutation<ICreateIngredientMutation>(CREATE_INGREDIENT, {
+    refetchQueries: [{ query: GET_INGREDIENTS }]
+  });
 
   const onSubmit: SubmitHandler<ICreateIngredientPayload> = (payload: ICreateIngredientPayload) => {
     createIngredient({
@@ -38,7 +41,6 @@ const IngredientForm: FC = () => {
   
   return (
     <>
-      <h1>Créer un ingrédient</h1>
       {loading ? (
         <Spinner />
       ) : (

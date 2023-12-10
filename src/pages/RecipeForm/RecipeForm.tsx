@@ -5,6 +5,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useHistory } from 'react-router';
 
 import { useToast } from '@/utils/toasts';
+import { GET_RECIPES } from '@/graphql/queries/recipes';
 import { CREATE_RECIPE, ICreateRecipeMutation, ICreateRecipePayload } from '@/graphql/mutations/recipes';
 import Spinner from '@/components/Spinner/Spinner';
 
@@ -18,7 +19,9 @@ const RecipeForm: FC = () => {
     formState: { isValid },
   } = useForm<ICreateRecipePayload>();
 
-  const [createRecipe, { loading }] = useMutation<ICreateRecipeMutation>(CREATE_RECIPE);
+  const [createRecipe, { loading }] = useMutation<ICreateRecipeMutation>(CREATE_RECIPE, {
+    refetchQueries: [{ query: GET_RECIPES }]
+  });
 
   const onSubmit: SubmitHandler<ICreateRecipePayload> = (payload: ICreateRecipePayload) => {
     createRecipe({

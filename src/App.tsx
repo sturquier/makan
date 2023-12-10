@@ -13,7 +13,7 @@ const App: FC = () => {
       <IonReactRouter>
         <IonSplitPane contentId="main">
           <Menu />
-          <IonRouterOutlet id="main">
+          <IonRouterOutlet id="main" placeholder={undefined}>
             <Route path="/" exact={true}>
               <Redirect to="/recipes" />
             </Route>
