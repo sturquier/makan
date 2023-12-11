@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { ApolloError, useMutation } from '@apollo/client';
-import { IonButton, IonInput, IonItem } from '@ionic/react';
+import { IonButton, IonInput, IonItem, IonLabel, IonList, IonText } from '@ionic/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useHistory } from 'react-router';
 
@@ -28,40 +28,52 @@ const IngredientForm: FC = () => {
       variables: payload
     }).then((_) => {
       history.goBack();
-      showToast("L'ingrédient a bien été créé", 'success');
+      showToast({
+        color: 'success',
+        message: "L'ingrédient a bien été créé"
+      });
     }).catch((error: ApolloError) => {
       if (error.message.includes('Uniqueness violation')) {
-        showToast("Ce nom d'ingrédient existe déjà", 'danger');  
+        showToast({
+          color: 'danger',
+          message: "Ce nom d'ingrédient existe déjà"
+        });  
         return;
       }
 
-      showToast("Une erreur est survenue lors de la création de l'ingrédient", 'danger');
+      showToast({
+        color: 'danger',
+        message: "Une erreur est survenue lors de la création de l'ingrédient"
+      });
     })
   }
   
   return (
-    <>
-      {loading ? (
-        <Spinner />
-      ) : (
-        <form onSubmit={handleSubmit(onSubmit)}>
+    loading ? (
+      <Spinner />
+    ) : (
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <IonList lines='none'>
           <IonItem>
+            <IonLabel>
+              Nom <IonText color="danger">*</IonText>
+            </IonLabel>
             <IonInput
-              label='Nom *'
+              fill='solid'
+              label='Entrez un nom'
               labelPlacement='floating'
               {...register('name', { required: true })}
             />
           </IonItem>
-          <IonButton
-            color='tertiary'
-            type='submit'
-            disabled={!isValid}
-            >
-              Créer un ingrédient
-            </IonButton>
-        </form>
-      )}
-    </>
+        </IonList>
+        <IonButton
+          type='submit'
+          disabled={!isValid}
+        >
+          Créer un ingrédient
+        </IonButton>
+      </form>
+    )
   )
 };
 

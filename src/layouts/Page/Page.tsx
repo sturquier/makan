@@ -24,7 +24,7 @@ const Page: FC<IPageProps> = ({ title, children }) => {
           <IonTitle>{title}</IonTitle>
         </IonToolbar>
       </IonHeader>
-      <IonContent fullscreen className='ion-padding'>
+      <IonContent>
         {children}
       </IonContent>
     </IonPage>

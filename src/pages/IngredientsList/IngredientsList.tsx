@@ -19,9 +19,8 @@ const IngredientsList: FC = () => {
       <IonRow>
         <IonCol>
           <IonButton
-            color='tertiary'
             className='ion-float-right'
-            onClick={() => history.push('/ingredients/new')}
+            onClick={(): void => history.push('/ingredients/new')}
           >
             <IonIcon slot="start" icon={addCircle} />
             Créer

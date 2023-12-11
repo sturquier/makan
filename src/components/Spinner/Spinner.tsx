@@ -6,7 +6,7 @@ import './Spinner.scss';
 const Spinner: FC = () => {
   return (
     <div className='spinner'>
-      <IonSpinner name='bubbles' color='tertiary' />
+      <IonSpinner name='bubbles' color='primary' />
     </div>
   );
 };

@@ -1,6 +1,9 @@
 /** FORM **/
 form {
+  padding-bottom: 50px;
+
   ion-item {
+    --border: none;
     --padding-bottom: 20px;
 
     ion-textarea {
@@ -11,9 +14,10 @@ form {
   }
 
   ion-button[type="submit"] {
-    position: absolute;
+    position: fixed;
     bottom: 10px;
     left: 5%;
     right: 5%;
+    z-index: 1;
   }
 }
