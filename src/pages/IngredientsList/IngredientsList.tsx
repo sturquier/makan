@@ -1,7 +1,8 @@
 import { FC } from 'react';
 import { useHistory } from 'react-router';
 import { useQuery } from '@apollo/client';
-import { IonButton, IonCol, IonRow, IonGrid } from '@ionic/react';
+import { IonButton, IonCol, IonRow, IonGrid, IonIcon } from '@ionic/react';
+import { addCircle } from 'ionicons/icons';
 
 import { GET_INGREDIENTS, IIngredientsQuery } from '@/graphql/queries/ingredients';
 import { IIngredient } from '@/models/ingredients';
@@ -22,6 +23,7 @@ const IngredientsList: FC = () => {
             className='ion-float-right'
             onClick={() => history.push('/ingredients/new')}
           >
+            <IonIcon slot="start" icon={addCircle} />
             Créer
           </IonButton>
         </IonCol>

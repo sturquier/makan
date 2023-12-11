@@ -3,8 +3,8 @@ import { gql } from '@apollo/client';
 import { IRecipe } from '@/models/recipes';
 
 export const CREATE_RECIPE = gql`
-  mutation CreateRecipe($name: String!) {
-    insert_recipes_one(object: { name: $name }) {
+  mutation CreateRecipe($name: String!, $description: String, $preparation_time: Int!, $cooking_time: Int!, $servings: Int!) {
+    insert_recipes_one(object: { name: $name, description: $description, preparation_time: $preparation_time, cooking_time: $cooking_time, servings: $servings }) {
       id,
       name
     }
@@ -15,4 +15,4 @@ export interface ICreateRecipeMutation {
   insert_recipes_one: IRecipe;
 };
 
-export type ICreateRecipePayload = Pick<IRecipe, "name">
+export type ICreateRecipePayload = Pick<IRecipe, "name" | "description" | "preparation_time" | "cooking_time" | "servings">

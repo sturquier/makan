@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { ApolloError, useMutation } from '@apollo/client';
-import { IonButton, IonInput, IonItem } from '@ionic/react';
+import { IonButton, IonInput, IonItem, IonLabel, IonSelect, IonSelectOption } from '@ionic/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useHistory } from 'react-router';
 
 import { useToast } from '@/utils/toasts';
+import { RecipeServings } from '@/models/recipes';
 import { GET_RECIPES } from '@/graphql/queries/recipes';
 import { CREATE_RECIPE, ICreateRecipeMutation, ICreateRecipePayload } from '@/graphql/mutations/recipes';
 import Spinner from '@/components/Spinner/Spinner';
@@ -41,24 +42,64 @@ const RecipeForm: FC = () => {
   
   return (
     <>
-      <h1>Créer une recette</h1>
       {loading ? (
         <Spinner />
       ) : (
         <form onSubmit={handleSubmit(onSubmit)}>
           <IonItem>
+            <IonLabel>Nom *</IonLabel>
             <IonInput
-              label='Nom *'
+              label='Entrez un nom'
               labelPlacement='floating'
               {...register('name', { required: true })}
             />
+          </IonItem>
+          <IonItem>
+            <IonLabel>Description</IonLabel>
+            <IonInput
+              label='Entrez une description'
+              labelPlacement='floating'
+              {...register('description')}
+            />
+          </IonItem>
+          <IonItem>
+            <IonLabel>Temps de préparation ( en minutes ) *</IonLabel>
+            <IonInput
+              type='number'
+              label='Entrez un temps de préparation'
+              labelPlacement='floating'
+              {...register('preparation_time', { required: true })}
+            />
+          </IonItem>
+          <IonItem>
+            <IonLabel>Temps de cuisson ( en minutes ) *</IonLabel>
+            <IonInput
+              type='number'
+              label='Entrez un temps de cuisson'
+              labelPlacement='floating'
+              {...register('cooking_time', { required: true })}
+            />
+          </IonItem>
+          <IonItem>
+            <IonLabel>Portions *</IonLabel>
+            <IonSelect
+              label='Sélectionnez un nombre de portions'
+              labelPlacement='floating'
+              {...register('servings', { required: true })}
+            >
+              {Object.values(RecipeServings)
+                .filter((servings: string | RecipeServings) => typeof servings == 'number')
+                .map((servings: string | RecipeServings) => (
+                  <IonSelectOption key={servings} value={servings}>{servings}</IonSelectOption>
+              ))}
+            </IonSelect>
           </IonItem>
           <IonButton
             color='tertiary'
             type='submit'
             disabled={!isValid}
             >
-              Créer
+              Créer une recette
             </IonButton>
         </form>
       )}

@@ -57,7 +57,7 @@ const IngredientForm: FC = () => {
             type='submit'
             disabled={!isValid}
             >
-              Créer
+              Créer un ingrédient
             </IonButton>
         </form>
       )}

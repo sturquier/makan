@@ -17,6 +17,7 @@ import '@ionic/react/css/display.css';
 import { GraphQLClient } from '@/config/apollo';
 import App from '@/App';
 import './theme/variables.scss';
+import './theme/layout.scss';
 
 setupIonicReact();
 

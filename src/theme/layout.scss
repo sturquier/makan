@@ -1,0 +1,13 @@
+/** FORM **/
+form {
+  ion-item {
+    --padding-bottom: 20px;
+  }
+
+  ion-button[type="submit"] {
+    position: absolute;
+    bottom: 10px;
+    left: 5%;
+    right: 5%;
+  }
+}
