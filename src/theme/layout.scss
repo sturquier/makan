@@ -2,6 +2,12 @@
 form {
   ion-item {
     --padding-bottom: 20px;
+
+    ion-textarea {
+      .textarea-bottom.textarea-bottom.sc-ion-textarea-md {
+        border-top: none;
+      }
+    }
   }
 
   ion-button[type="submit"] {

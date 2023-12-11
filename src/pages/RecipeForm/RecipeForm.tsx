@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { ApolloError, useMutation } from '@apollo/client';
-import { IonButton, IonInput, IonItem, IonLabel, IonSelect, IonSelectOption } from '@ionic/react';
+import { IonButton, IonInput, IonItem, IonLabel, IonSelect, IonSelectOption, IonText, IonTextarea } from '@ionic/react';
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useHistory } from 'react-router';
 
@@ -47,7 +47,9 @@ const RecipeForm: FC = () => {
       ) : (
         <form onSubmit={handleSubmit(onSubmit)}>
           <IonItem>
-            <IonLabel>Nom *</IonLabel>
+            <IonLabel>
+              Nom <IonText color="danger">*</IonText>
+            </IonLabel>
             <IonInput
               label='Entrez un nom'
               labelPlacement='floating'
@@ -56,14 +58,18 @@ const RecipeForm: FC = () => {
           </IonItem>
           <IonItem>
             <IonLabel>Description</IonLabel>
-            <IonInput
+            <IonTextarea
+              autoGrow={true}
+              maxlength={200}
+              counter={true}
+              counterFormatter={(inputLength: number, maxLength: number) => `${maxLength - inputLength} caractères restants`}
               label='Entrez une description'
               labelPlacement='floating'
               {...register('description')}
             />
           </IonItem>
           <IonItem>
-            <IonLabel>Temps de préparation ( en minutes ) *</IonLabel>
+            <IonLabel>Temps de préparation ( en minutes ) <IonText color="danger">*</IonText></IonLabel>
             <IonInput
               type='number'
               label='Entrez un temps de préparation'
@@ -72,7 +78,7 @@ const RecipeForm: FC = () => {
             />
           </IonItem>
           <IonItem>
-            <IonLabel>Temps de cuisson ( en minutes ) *</IonLabel>
+            <IonLabel>Temps de cuisson ( en minutes ) <IonText color="danger">*</IonText></IonLabel>
             <IonInput
               type='number'
               label='Entrez un temps de cuisson'
@@ -81,7 +87,7 @@ const RecipeForm: FC = () => {
             />
           </IonItem>
           <IonItem>
-            <IonLabel>Portions *</IonLabel>
+            <IonLabel>Portions <IonText color="danger">*</IonText></IonLabel>
             <IonSelect
               label='Sélectionnez un nombre de portions'
               labelPlacement='floating'
